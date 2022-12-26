@@ -1,8 +1,60 @@
 import React, { FC } from "react";
+import { TimeLine } from "../components/Timeline";
 
 export const AboutMe: FC = () => {
+  const leftPersonalInfo = () => {
+    return (
+      <>
+        <div className="emph-1 fs-6">Name</div>
+        <div className="emph-1 fs-6">Birthday</div>
+        <div className="emph-1 fs-6">Place of Birth</div>
+        <div className="emph-1 fs-6">Nationality</div>
+        <div className="emph-1 fs-6">Marital Status</div>
+      </>
+    );
+  };
+
+  const rightPersonalInfo = () => {
+    return (
+      <>
+        <div className="text-secondary">Le Minh Khoi</div>
+        <div className="text-secondary">07 Dec 1993</div>
+        <div className="text-secondary">Quang Ngai</div>
+        <div className="text-secondary">Vietnam</div>
+        <div className="text-secondary">Married</div>
+      </>
+    );
+  };
+
+  const leftContactInfo = () => {
+    return (
+      <>
+        <span className="emph-1 fs-6">Address</span> :<br />
+        <span className="fs-6"> 318/5 Trinh Dinh Trong, Hoa Thanh, Tan Phu, HCM</span>
+      </>
+    );
+  };
+
+  const rightContactInfo = () => {
+    return (
+      <>
+        <li>
+          <span className="emph-1 fs-6">E-Mail</span> : khoi.kioto@gmail.com
+        </li>
+        <li>
+          <span className="emph-1 fs-6">Website</span> : www.khoilefe.com
+        </li>
+        <li>
+          <span className="emph-1 fs-6">Phone</span> : +84 333619316
+        </li>
+        <li>
+          <span className="emph-1 fs-6">Skype</span> : khoiaesgit@gmail.com
+        </li>
+      </>
+    );
+  };
   return (
-    <section id="about" className="bg-white t-center active" style={{ display: "block" }}>
+    <section id="about" className="bg-white t-center">
       <div className="about">
         <div className="content">
           <div className="block-content mb-100">
@@ -26,10 +78,11 @@ export const AboutMe: FC = () => {
             </div>
 
             <p className="lead-intro">
-              “ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-              dolor in reprehenderit in voluptate velit esse ! “
+              “ I have 5 years+ of experience working with javascript, typescript and writing webs
+              app. I have extensive knowledge of js, html, css and browser APIs as well as
+              significant experience with popular frameworks and libraries like React, Redux,
+              Angular. My Biggest passion is to build the most beautiful and helpful craziest webs
+              for my client, my team and for myself. “
             </p>
 
             <img className="signature mt-20" src="img/signature.png" alt="" />
@@ -45,33 +98,9 @@ export const AboutMe: FC = () => {
             </div>
 
             <div className="row">
-              <div className="col-md-8 col-md-offset-3  col-sm-8 col-sm-offset-3 ">
-                <div className="listing mt-40">
-                  <div className="listing-inner">
-                    <div className="listing-event">
-                      <ul className="data left">
-                        <li className="emph-1">Name</li>
-                        <li className="emph-1">Birthday</li>
-                        <li className="emph-1">Place of Birth</li>
-                        <li className="emph-1">Nationality</li>
-                        <li className="emph-1">Marital Status</li>
-                        <li className="emph-1">Freelance</li>
-                        <li className="emph-1">Vacation</li>
-                      </ul>
-
-                      <ul className="data right">
-                        <li>Carlos Smith</li>
-                        <li>
-                          1982.04.09 <span className="emph-1">(year/day/month)</span>
-                        </li>
-                        <li>Sydney</li>
-                        <li>Australian</li>
-                        <li>Single</li>
-                        <li>Available</li>
-                        <li>Till April 25, 2016</li>
-                      </ul>
-                    </div>
-                  </div>
+              <div className="col-md-12  ">
+                <div className="timeline">
+                  <TimeLine leftChildren={leftPersonalInfo()} rightChildren={rightPersonalInfo()} />
                 </div>
               </div>
             </div>
@@ -87,33 +116,9 @@ export const AboutMe: FC = () => {
             </div>
 
             <div className="row">
-              <div className="col-md-8 col-md-offset-3  col-sm-8 col-sm-offset-3 ">
-                <div className="listing mt-40">
-                  <div className="listing-inner">
-                    <div className="listing-event">
-                      <ul className="data left">
-                        <li>
-                          <span className="emph-1">Adress</span> :<br />
-                          Carlose Smith 1234 Street Road, Chicago, IN 567 890 United States
-                        </li>
-                      </ul>
-
-                      <ul className="data right">
-                        <li>
-                          <span className="emph-1">E-Mail</span> : carlossmith@gmail.com
-                        </li>
-                        <li>
-                          <span className="emph-1">Website</span> : www.carlosesmith.com
-                        </li>
-                        <li>
-                          <span className="emph-1">Phone</span> : + 123 456 789 456{" "}
-                        </li>
-                        <li>
-                          <span className="emph-1">Skype</span> : Carlose_Smith
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+              <div className="col-md-12  ">
+                <div className="timeline">
+                  <TimeLine leftChildren={leftContactInfo()} rightChildren={rightContactInfo()} />
                 </div>
               </div>
             </div>

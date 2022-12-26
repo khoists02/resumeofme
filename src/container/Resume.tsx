@@ -1,15 +1,50 @@
 import React, { FC } from "react";
+import { TimeLine } from "../components/Timeline";
+import { Experience, experienceData } from "../data/experience";
 
 export const ResumeSection: FC = () => {
+  const leftContent = (data: Experience) => {
+    return (
+      <>
+        <span className="date">
+          <i className="bi bi-calendar-day fs-5 me-2"></i>
+          <span>{data.date}</span>
+        </span>
+        <h4>{data.title}</h4>
+      </>
+    );
+  };
+
+  const rightContent = (data: Experience) => {
+    return (
+      <>
+        <div className="tasks">
+          <div className="fs-5">
+            <i className="bi bi-card-checklist fs-5 me-2"></i>
+            <span>Tasks</span>
+          </div>
+          <div className="ul me-2">
+            {data.tasks.map((task, index) => {
+              return (
+                <li key={index} className="text-dark">
+                  {task}
+                </li>
+              );
+            })}
+          </div>
+        </div>
+        <p>{data.description}</p>
+      </>
+    );
+  };
   return (
     <section
       className="bg-white t-center active"
       style={{
         display: "block",
         position: "static",
-        visibility: "visible",
-      }}
-    >
+        visibility: "visible"
+      }}>
       <div className="resume">
         <div className="content">
           <div className="block-content mb-100">
@@ -35,44 +70,16 @@ export const ResumeSection: FC = () => {
             <div className="row">
               <div className="col-md-12  ">
                 <div className="timeline">
-                  <div className="timeline-inner">
-                    <div className="name">
-                      <span className="date">
-                        September 2016<em>Current</em>
-                      </span>
-                      <h4>WebDesigner – Mutation Media </h4>
-                    </div>
-                    <div className="detail">
-                      <p>
-                        Ut enim ad minim veniam, quis nostrud exerc. Irure dolor
-                        in reprehend incididunt labore et dolore magna aliqua.{" "}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="timeline-inner ">
-                    <div className="name switched">
-                      <span className="date">August 2015 - June 2016</span>
-                      <h4>Web Developer – Mutation Media </h4>
-                    </div>
-                    <div className="detail">
-                      <p>
-                        Ut enim ad minim veniam, quis nostrud exerc. Irure dolor
-                        in reprehend incididunt labore et dolore magna aliqua.{" "}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="timeline-inner">
-                    <div className="name">
-                      <span className="date">Jannuary 2015 - March 2016</span>
-                      <h4>SDK Developer – Mutation Media </h4>
-                    </div>
-                    <div className="detail">
-                      <p>
-                        Ut enim ad minim veniam, quis nostrud exerc. Irure dolor
-                        in reprehend incididunt labore et dolore magna aliqua.{" "}
-                      </p>
-                    </div>
-                  </div>
+                  {experienceData.map((dt, index) => {
+                    return (
+                      <TimeLine
+                        leftChildren={leftContent(dt)}
+                        rightChildren={rightContent(dt)}
+                        key={index}
+                        extendClass={index % 2 === 0 ? "" : "switched"}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -92,38 +99,11 @@ export const ResumeSection: FC = () => {
                 <div className="timeline">
                   <div className="timeline-inner">
                     <div className="name">
-                      <span className="date">August 2015 - June 2016</span>
-                      <h4>Bachelor Degree – Mutation Media </h4>
+                      <span className="date">2016</span>
+                      <h4>Web Developer </h4>
                     </div>
                     <div className="detail">
-                      <p>
-                        Ut enim ad minim veniam, quis nostrud exerc. Irure dolor
-                        in reprehend incididunt labore et dolore magna aliqua.{" "}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="timeline-inner ">
-                    <div className="name switched">
-                      <span className="date">August 2015 - June 2016</span>
-                      <h4>Master Degree – Mutation Media </h4>
-                    </div>
-                    <div className="detail">
-                      <p>
-                        Ut enim ad minim veniam, quis nostrud exerc. Irure dolor
-                        in reprehend incididunt labore et dolore magna aliqua.{" "}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="timeline-inner">
-                    <div className="name">
-                      <span className="date">August 2003 - June 2012</span>
-                      <h4>School Of Science – Mutation Media </h4>
-                    </div>
-                    <div className="detail">
-                      <p>
-                        Ut enim ad minim veniam, quis nostrud exerc. Irure dolor
-                        in reprehend incididunt labore et dolore magna aliqua.{" "}
-                      </p>
+                      <p>FPT Aptech</p>
                     </div>
                   </div>
                 </div>
@@ -143,17 +123,11 @@ export const ResumeSection: FC = () => {
             <div className="row">
               <div className="col-md-12  ">
                 <div className="listing-large mt-40">
-                  <a className="uppercase emph-1 btn-1" href="#">
-                    Download my cv
-                  </a>
-                  <a className="uppercase emph-1 btn-2" href="#">
-                    Print My resume
-                  </a>
                   <div className="listing-large-inner">
                     <div className="listing-event">
                       <ul className="data left clearfix">
                         <li>
-                          <h5>Html</h5>
+                          <h5>HTML</h5>
                           <div className="rating">
                             <span></span>
                             <span></span>
@@ -169,135 +143,7 @@ export const ResumeSection: FC = () => {
                         </li>
 
                         <li>
-                          <h5>Css</h5>
-                          <div className="rating">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                          </div>
-                        </li>
-
-                        <li>
-                          <h5>Jquery</h5>
-                          <div className="rating">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                          </div>
-                        </li>
-
-                        <li>
-                          <h5>Php</h5>
-                          <div className="rating">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                          </div>
-                        </li>
-
-                        <li>
-                          <h5>Wordpress</h5>
-                          <div className="rating">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                          </div>
-                        </li>
-
-                        <li>
-                          <h5>Xcode</h5>
-                          <div className="rating">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                          </div>
-                        </li>
-
-                        <li>
-                          <h5>Photoshop</h5>
-                          <div className="rating">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span className="transparent"></span>
-                          </div>
-                        </li>
-
-                        <li>
-                          <h5>Indesign</h5>
-                          <div className="rating">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                          </div>
-                        </li>
-
-                        <li>
-                          <h5>Fireworks</h5>
-                          <div className="rating">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                          </div>
-                        </li>
-
-                        <li>
-                          <h5>Illustrator</h5>
+                          <h5>CSS</h5>
                           <div className="rating">
                             <span></span>
                             <span></span>
@@ -313,23 +159,23 @@ export const ResumeSection: FC = () => {
                         </li>
 
                         <li>
-                          <h5>3dmax</h5>
+                          <h5>React</h5>
                           <div className="rating">
                             <span></span>
                             <span></span>
                             <span></span>
                             <span></span>
                             <span></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
-                            <span className="transparent"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                             <span className="transparent"></span>
                           </div>
                         </li>
 
                         <li>
-                          <h5>AfterEffects</h5>
+                          <h5>Nodejs</h5>
                           <div className="rating">
                             <span></span>
                             <span></span>
@@ -338,6 +184,21 @@ export const ResumeSection: FC = () => {
                             <span></span>
                             <span></span>
                             <span></span>
+                            <span className="transparent"></span>
+                            <span className="transparent"></span>
+                            <span className="transparent"></span>
+                          </div>
+                        </li>
+                        <li>
+                          <h5>Java</h5>
+                          <div className="rating">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span className="transparent"></span>
+                            <span className="transparent"></span>
+                            <span className="transparent"></span>
+                            <span className="transparent"></span>
                             <span className="transparent"></span>
                             <span className="transparent"></span>
                             <span className="transparent"></span>
@@ -347,10 +208,10 @@ export const ResumeSection: FC = () => {
 
                       <ul className="data right clearfix">
                         <li>
-                          <h5>Assests</h5>
+                          <h5>Assets</h5>
                           <p className="emph-3">
-                            Responsible, Diligence, Labour, Rigor, Creative,
-                            Funny, Great Communicator, Flexible
+                            Responsible, Diligence, Labour, Rigor, Creative, Funny, Great
+                            Communicator, Flexible
                           </p>
                         </li>
 
@@ -358,21 +219,7 @@ export const ResumeSection: FC = () => {
                           <h5>Languages</h5>
                           <ul>
                             <li className="emph-1">
-                              English{" "}
-                              <span className="emph-4">
-                                (Advanced Speaking)
-                              </span>
-                            </li>
-                            <li className="emph-1">
-                              Frensh{" "}
-                              <span className="emph-4">(fluent Speaking)</span>
-                            </li>
-                            <li className="emph-1">
-                              German{" "}
-                              <span className="emph-4">(Basic Knowledge)</span>
-                            </li>
-                            <li className="emph-1">
-                              Spanish <span className="emph-4">(Beginner)</span>
+                              English <span className="emph-4">(Advanced Speaking)</span>
                             </li>
                           </ul>
                         </li>
@@ -382,14 +229,14 @@ export const ResumeSection: FC = () => {
                           <ul className="hb-list">
                             <li>
                               <span>
-                                <i className="icon-music-4"></i>
+                                <i className="bi bi-speaker"></i>
                               </span>
                               <h6>Music</h6>
                             </li>
 
                             <li>
                               <span>
-                                <i className="icon-star-7"></i>
+                                <i className="bi bi-xbox"></i>
                               </span>
                               <h6>Gaming</h6>
                             </li>

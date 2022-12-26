@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import MainLogo from "./assets/img/mainlogo.jpeg";
 import { ResumeSection } from "./container/Resume";
+import { AboutMe } from "./container/AboutMe";
+import { Footer } from "./container/Footer";
+
+const sections = [
+  {
+    label: "About me",
+    value: "aboutme",
+    sub: "Who Am I",
+    icon: "bi bi-person"
+  },
+  {
+    label: "Resume",
+    value: "resume",
+    sub: "",
+    icon: "bi bi-briefcase"
+  },
+  {
+    label: "Portfolio",
+    value: "portfolio",
+    sub: "My Works",
+    icon: "bi bi-camera"
+  }
+];
 
 function App() {
+  const [selected, setSelected] = useState("aboutme");
   return (
     <div className="mt-150 mb-150">
       <div className="container">
@@ -21,44 +45,28 @@ function App() {
 
                 <nav id="main-nav" className="main-nav clearfix t-center uppercase tabbed">
                   <ul className="clearfix">
-                    <li className="">
-                      <a href="#about" className="">
-                        <i className="icon-user"></i>About me
-                        <span>ho am i</span>
-                      </a>
-                    </li>
-                    <li className="active">
-                      <a href="#resume" className="active">
-                        <i className="icon-briefcase"></i>Resume
-                        <span>curriculum vita</span>
-                      </a>
-                    </li>
-                    <li className="">
-                      <a href="#portfolio" className="">
-                        <i className="icon-camera"></i>Portfolio
-                        <span>my works</span>
-                      </a>
-                    </li>
-                    <li className="">
-                      <a href="#blog" className="">
-                        <i className="icon-chat"></i>Blog<span>My toughts</span>
-                      </a>
-                    </li>
-                    <li className="">
-                      <a href="#contact" className="">
-                        <i className="icon-phone"></i>Contact
-                        <span>Say hello</span>
-                      </a>
-                    </li>
+                    {sections.map((dt, index) => {
+                      return (
+                        <li key={index} className="" onClick={() => setSelected(dt.value)}>
+                          <a className={`${selected === dt.value ? "active" : ""}`}>
+                            <i className={`${dt.icon}`}></i>
+                            {dt.label}
+                            <span>{dt.sub}</span>
+                          </a>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </nav>
               </div>
             </header>
           </div>
           <div className="col-md-9 right-content pd-r0 pd-l0">
-            <ResumeSection />
+            {selected === "resume" && <ResumeSection />}
+            {selected === "aboutme" && <AboutMe />}
             {/* <AboutMe /> */}
           </div>
+          <Footer />
         </div>
       </div>
     </div>

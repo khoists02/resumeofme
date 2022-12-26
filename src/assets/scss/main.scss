@@ -525,7 +525,7 @@ font-weight: 400;
   background-color: #eaeaea;
   content: " ";
   height: 100%;
-   left: 49.9%;
+   left: calc(50.5% + 1px);
   position: absolute;
   top: 0;
   width: 1px;
@@ -1505,7 +1505,7 @@ display:block;
 
 
 
-.footer .copyright{
+.copyright{
  background: #2a2a2a;
   float: left;
   margin-left: 41px;
@@ -1521,7 +1521,7 @@ display:block;
   
 }
 
-.footer .copyright p{
+.copyright p{
 color:#ffffff;
 font-size:12px;
   font-weight: 400;
@@ -1622,7 +1622,7 @@ p.lead-intro{padding:0 3px;}
 .footer{position:absolute;top:-41px;z-index:10;right:0px;}
 .footer .social{float:left;margin-left:0;}
 .footer .social li{float: left; margin-left: 1px;}
-.footer .copyright {float:left;margin-left:1px; -webkit-transform: none;transform: none;}
+.copyright {float:left;margin-left:1px; -webkit-transform: none;transform: none;}
 .listing a.btn-2 {right: 14%;}
 .listing a.btn-1 {left: -12.2%;}
 .listing-large .listing-event .data.right{width:65%;margin-left: 38.8%;}
@@ -1675,7 +1675,7 @@ ul.hb-list li{margin-right:4px;}
 .footer{position:absolute;top:-41px;z-index:10;right:0px;}
 .footer .social{float:left;margin-left:0;}
 .footer .social li{float: left; margin-left: 1px;}
-.footer .copyright {float:left;margin-left:1px; -webkit-transform: none;transform: none;}
+.copyright {float:left;margin-left:1px; -webkit-transform: none;transform: none;}
 .listing a.btn-2, .listing a.btn-1, .listing-large a.btn-2, .listing-large a.btn-1  {display:none;}
 .listing-large .listing-event .data.right, .listing-large .listing-event .data.left{width:auto;margin:0;padding:0;float:none;}
 .listing-large .listing-event .data.left{margin-bottom:40px !important;}
@@ -1738,7 +1738,7 @@ ul.hb-list li{margin-right:2px;}
 .block-quote{padding:20px;}
 .footer{position:absolute;top:-41px;z-index:10;right:0px;}
 .footer .social{display:none;}
-.footer .copyright {float:left;margin-left:1px; -webkit-transform: none;transform: none;}
+.copyright {float:left;margin-left:1px; -webkit-transform: none;transform: none;}
 .listing a.btn-2, .listing a.btn-1, .listing-large a.btn-2, .listing-large a.btn-1  {display:none;}
 .listing-large .listing-event .data.right, .listing-large .listing-event .data.left{width:auto;margin:0;padding:0;float:none;}
 .listing-large .listing-event .data.left{margin-bottom:40px !important;}
@@ -1759,7 +1759,13 @@ ul.hb-list li{margin-right:2px;}
 .input-columns .column1, .input-columns .column2{width:100%;}
 .input-columns .column1 .column-inner{padding:0;}
 .block-info .col-md-4:not(:last-child){margin-bottom:30px;}
-
+.footer {
+  position: absolute;
+    top: -41px;
+    z-index: 10;
+    right: 0px;
+    width: 100% !important;
+}
 }
 
 

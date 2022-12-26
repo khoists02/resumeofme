@@ -3,12 +3,13 @@ import { TimeLine } from "../components/Timeline";
 import { Experience, experienceData } from "../data/experience";
 
 export const ResumeSection: FC = () => {
-  const leftContent = (data: Experience) => {
+  const leftContent = (data: Experience, index: number) => {
     return (
       <>
         <span className="date">
           <i className="bi bi-calendar-day fs-5 me-2"></i>
           <span>{data.date}</span>
+          {index === 0 && <em>current</em>}
         </span>
         <h4>{data.title}</h4>
       </>
@@ -73,7 +74,7 @@ export const ResumeSection: FC = () => {
                   {experienceData.map((dt, index) => {
                     return (
                       <TimeLine
-                        leftChildren={leftContent(dt)}
+                        leftChildren={leftContent(dt, index)}
                         rightChildren={rightContent(dt)}
                         key={index}
                         extendClass={index % 2 === 0 ? "" : "switched"}
@@ -266,7 +267,7 @@ export const ResumeSection: FC = () => {
           <div className="block-content">
             <div className="row">
               <div className="col-md-12">
-                <span className="page-number emph-1">- 2/5 -</span>
+                <span className="page-number emph-1">- 2/3 -</span>
               </div>
             </div>
           </div>

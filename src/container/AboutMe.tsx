@@ -42,7 +42,13 @@ export const AboutMe: FC = () => {
           <span className="emph-1 fs-6">E-Mail</span> : khoi.kioto@gmail.com
         </li>
         <li>
-          <span className="emph-1 fs-6">Website</span> : www.khoilefe.com
+          <span className="emph-1 fs-6">Website</span> :{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://khoilefrontend.000webhostapp.com/">
+            www.khoilefe.com
+          </a>
         </li>
         <li>
           <span className="emph-1 fs-6">Phone</span> : +84 333619316
@@ -127,7 +133,7 @@ export const AboutMe: FC = () => {
           <div className="block-content">
             <div className="row">
               <div className="col-md-12">
-                <span className="page-number emph-1">- 1/5 -</span>
+                <span className="page-number emph-1">- 1/3 -</span>
               </div>
             </div>
           </div>

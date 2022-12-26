@@ -2,3 +2,7 @@
 @import "~bootstrap-icons/font/bootstrap-icons";
 @import "./assets/scss/base";
 @import "./assets/scss/main";
+
+body {
+  font: 14px/22px "Source Sans Pro","Helvetica","Arial",sans-serif !important;
+}

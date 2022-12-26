@@ -4,6 +4,7 @@ import MainLogo from "./assets/img/mainlogo.jpeg";
 import { ResumeSection } from "./container/Resume";
 import { AboutMe } from "./container/AboutMe";
 import { Footer } from "./container/Footer";
+import { Portfolio } from "./container/Portfolio";
 
 const sections = [
   {
@@ -64,6 +65,7 @@ function App() {
           <div className="col-md-9 right-content pd-r0 pd-l0">
             {selected === "resume" && <ResumeSection />}
             {selected === "aboutme" && <AboutMe />}
+            {selected === "portfolio" && <Portfolio />}
             {/* <AboutMe /> */}
           </div>
           <Footer />
